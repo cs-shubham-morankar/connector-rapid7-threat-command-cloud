@@ -1,0 +1,383 @@
+{
+    "name": "rapid7-threat-command-cloud",
+    "version": "1.0.0",
+    "label": "Rapid7 Threat Command Cloud",
+    "description": "Rapid7 Threat Command Cloud connector.",
+    "publisher": "Fortinet CSE",
+    "icon_small_name": "connector_logo_small.png",
+    "icon_large_name": "connector_logo_large.png",
+    "category": [
+        "Analytics and SIEM"
+    ],
+    "configuration": {
+        "fields": [
+            {
+                "title": "URL",
+                "type": "text",
+                "name": "url",
+                "required": true,
+                "visible": true,
+                "editable": true,
+                "value": "https://api.ti.insight.rapid7.com"
+            },
+            {
+                "title": "Account ID",
+                "type": "text",
+                "name": "account_id",
+                "required": true,
+                "visible": true,
+                "editable": true,
+                "value": "",
+                "tooltip": "Account ID"
+            },
+            {
+                "title": "API Key",
+                "type": "password",
+                "name": "api_key",
+                "required": true,
+                "visible": true,
+                "editable": true
+            },
+            {
+                "title": "Verify SSL",
+                "type": "checkbox",
+                "name": "verify_ssl",
+                "required": false,
+                "visible": true,
+                "editable": true,
+                "value": true
+            }
+        ]
+    },
+	"operations": [
+		{
+			"operation": "generic_api_call",
+			"title": "Generic API call",
+			"description": "Makes API call to the given endpoint.",
+			"enabled": true,
+			"category": "",
+			"annotation": "",
+			"TEMPLATE_NOTE6": "--OUTPUT SCHEMA IS A SAMPLE RESPONSE FROM THIS CONNECTOR ACTION--",
+			"output_schema": {},
+			"parameters": [
+				{
+					"title": "api_endpoint",
+					"type": "text",
+					"name": "api_endpoint",
+					"required": true,
+					"visible": true,
+					"editable": true,
+					"value": "",
+					"tooltip": "should include the whole string eg) \"/api/v1/helloworld\""
+				},
+				{
+					"title": "method",
+					"type": "select",
+					"name": "method",
+					"required": true,
+					"visible": true,
+					"editable": true,
+					"value": "GET",
+					"options": [
+						"GET",
+						"PUT",
+						"POST",
+						"DELETE",
+						"PATCH",
+						"HEAD",
+						"OPTIONS",
+						"TRACE"
+					]
+				},
+				{
+					"title": "params",
+					"type": "object",
+					"name": "params",
+					"required": false,
+					"visible": true,
+					"editable": true,
+					"value": null,
+					"tooltip": "same as requests library \"params\" will be converted to get in URL"
+				},
+				{
+					"title": "data",
+					"type": "object",
+					"name": "json_data",
+					"required": false,
+					"visible": true,
+					"editable": true,
+					"value": null,
+					"tooltip": "same as requests library \"data\" will be converted to get in Body"
+				},
+				{
+					"title": "headers",
+					"type": "object",
+					"name": "headers",
+					"required": false,
+					"visible": false,
+					"editable": true,
+					"value": null,
+					"tooltip": "overrides some value in header when header is set here"
+				}
+			],
+			"open": false
+		},
+		{
+			"title": "Get IOC sources",
+			"operation": "get_ioc_sources",
+			"description": "",
+			"parameters": [],
+			"open": false,
+			"category": "investigation"
+		},
+		{
+			"title": "Get IOCs by filter",
+			"operation": "get_iocs_by_filter",
+			"description": "",
+			"parameters": [
+				{
+					"title": "lastUpdatedFrom",
+					"type": "datetime",
+					"name": "lastUpdatedFrom",
+					"required": true,
+					"visible": true,
+					"editable": true,
+					"value": null
+				}
+			],
+			"open": false,
+			"category": "investigation"
+		},
+		{
+			"title": "Get IOC by value",
+			"operation": "get_ioc_by_value",
+			"description": "",
+			"parameters": [
+				{
+					"title": "iocValue",
+					"type": "text",
+					"name": "iocValue",
+					"required": false,
+					"visible": true,
+					"editable": true,
+					"value": ""
+				}
+			],
+			"open": false
+		},
+		{
+			"title": "Add IOCs to source",
+			"operation": "add_iocs_to_source",
+			"description": "",
+			"parameters": [
+				{
+					"title": "SourceID",
+					"type": "text",
+					"name": "sourceID",
+					"required": true,
+					"visible": true,
+					"editable": true,
+					"value": ""
+				},
+				{
+					"title": "Iocs",
+					"type": "object",
+					"name": "iocs",
+					"required": true,
+					"visible": true,
+					"editable": true,
+					"value": "[\n        {\n            \"Type\": \"Domains\",\n            \"Value\": \"example.com\"\n        },\n        {\n            \"Type\": \"IpAddresses\",\n            \"Value\": \"0.0.0.0\"\n        }\n    ]"
+				}
+			],
+			"open": false
+		},
+		{
+			"title": "Change IOC severity",
+			"operation": "change_ioc_severity",
+			"description": "",
+			"parameters": [
+				{
+					"title": "iocValue",
+					"type": "text",
+					"name": "iocValue",
+					"required": false,
+					"visible": true,
+					"editable": true,
+					"value": ""
+				},
+				{
+					"title": "severity",
+					"type": "select",
+					"name": "severity",
+					"required": false,
+					"visible": true,
+					"editable": true,
+					"value": null,
+					"options": [
+						"High",
+						"Medium",
+						"Low"
+					]
+				}
+			],
+			"open": false
+		},
+		{
+			"title": "Get CVEs by IDs",
+			"operation": "get_cves_by_ids",
+			"description": "",
+			"parameters": [
+				{
+					"title": "CveList",
+					"type": "object",
+					"name": "cveList",
+					"required": true,
+					"visible": true,
+					"editable": true,
+					"value": "[\"CVE-1999-001\", \"CVE-1999-002\"]",
+					"tooltip": "[\n    \"CVE-1999-001\",\n    \"CVE-1999-002\",\n    \"CVE-1999-0003\",\n    \"CVE-1999-0004\",\n    \"CVE-1999-0005\",\n]"
+				}
+			],
+			"open": false
+		},
+		{
+			"title": "Get CVEs list from account",
+			"operation": "get_cves_list_from_account",
+			"description": "",
+			"parameters": [
+				{
+					"title": "publishDateFrom",
+					"type": "datetime",
+					"name": "publishDateFrom",
+					"required": false,
+					"visible": true,
+					"editable": true,
+					"value": null
+				}
+			],
+			"open": false
+		},
+		{
+			"title": "Get alerts list",
+			"operation": "get_alerts_list",
+			"description": "Get list of alerts ids by query",
+			"parameters": [
+				{
+					"title": "alertType",
+					"type": "multiselect",
+					"name": "alertType",
+					"required": false,
+					"visible": true,
+					"editable": true,
+					"value": null,
+					"options": [
+						"AttackIndication",
+						"DataLeakage",
+						"Phishing",
+						"BrandSecurity",
+						"ExploitableData",
+						"vip"
+					]
+				},
+				{
+					"title": "severity",
+					"type": "multiselect",
+					"name": "severity",
+					"required": false,
+					"visible": true,
+					"editable": true,
+					"value": null,
+					"options": [
+						"High",
+						"Medium",
+						"Low"
+					]
+				},
+				{
+					"title": "sourceType",
+					"type": "multiselect",
+					"name": "sourceType",
+					"required": false,
+					"visible": true,
+					"editable": true,
+					"value": null,
+					"options": [
+						"ApplicationStores",
+						"BlackMarkets",
+						"HackingForums",
+						"SocialMedia",
+						"PasteSites",
+						"Others"
+					]
+				},
+				{
+					"title": "networkType",
+					"type": "multiselect",
+					"name": "networkType",
+					"required": false,
+					"visible": true,
+					"editable": true,
+					"value": null,
+					"options": [
+						"ClearWeb",
+						"DarkWeb"
+					]
+				},
+				{
+					"title": "matchedAssetValue",
+					"type": "text",
+					"name": "matchedAssetValue",
+					"required": false,
+					"visible": true,
+					"editable": true,
+					"value": ""
+				},
+				{
+					"title": "tags",
+					"type": "text",
+					"name": "tags",
+					"required": false,
+					"visible": true,
+					"editable": true,
+					"value": ""
+				},
+				{
+					"title": "remediationStatus",
+					"type": "multiselect",
+					"name": "remediationStatus",
+					"required": false,
+					"visible": true,
+					"editable": true,
+					"value": null,
+					"options": [
+						"InProgress",
+						"Pending",
+						"CancellationInProgress",
+						"Cancelled",
+						"CompletedSuccessfully",
+						"Failed"
+					]
+				},
+				{
+					"title": "sourceDateFrom",
+					"type": "datetime",
+					"name": "sourceDateFrom",
+					"required": false,
+					"visible": true,
+					"editable": true,
+					"value": null
+				},
+				{
+					"title": "sourceDateTo",
+					"type": "datetime",
+					"name": "sourceDateTo",
+					"required": false,
+					"visible": true,
+					"editable": true,
+					"value": null
+				}
+			],
+			"open": false
+		}
+	]
+}
