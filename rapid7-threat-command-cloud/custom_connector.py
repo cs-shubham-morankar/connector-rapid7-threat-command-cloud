@@ -1,3 +1,10 @@
+"""
+Copyright start
+MIT License
+Copyright (c) 2025 Fortinet Inc
+Copyright end
+"""
+
 import requests
 import arrow
 from typing import Union, Literal, Optional
@@ -51,12 +58,12 @@ class CustomConnector:
             raise Exception("/public/v1/account/used-credits did not return any data, probably authentication error.")
 
     def generic_api_call(
-        self,
-        method: Literal["GET", "PUT", "POST", "DELETE", "PATCH", "HEAD", "OPTIONS", "TRACE"],
-        api_endpoint: str,
-        headers: Optional[dict] = None,
-        params: Optional[dict] = None,
-        json_data: Union[dict, list, None] = None,
+            self,
+            method: Literal["GET", "PUT", "POST", "DELETE", "PATCH", "HEAD", "OPTIONS", "TRACE"],
+            api_endpoint: str,
+            headers: Optional[dict] = None,
+            params: Optional[dict] = None,
+            json_data: Union[dict, list, None] = None,
     ) -> dict:
         self._check_api_endpoint(api_endpoint)
         url = self.url + api_endpoint
@@ -70,7 +77,8 @@ class CustomConnector:
         json_data_new = self._delete_none_dict(json_data)
 
         resp = requests.request(
-            method, url, headers=headers, auth=authorization, params=params_new, json=json_data_new, verify=self.verify_ssl
+            method, url, headers=headers, auth=authorization, params=params_new, json=json_data_new,
+            verify=self.verify_ssl
         )
         if resp.status_code == 200:
             return resp.json()
@@ -86,7 +94,8 @@ class CustomConnector:
         endpoint = "/public/v1/iocs/sources"
         return self.generic_api_call("GET", endpoint)
 
-    def get_iocs_by_filter(self, lastUpdatedFrom: str, limit: Optional[int] = None, offset: Optional[int] = None) -> dict:
+    def get_iocs_by_filter(self, lastUpdatedFrom: str, limit: Optional[int] = None,
+                           offset: Optional[int] = None) -> dict:
         """IOCs - Get IOCs by filter"""
         endpoint = "/public/v3/iocs"
         lastUpdatedFrom_conv = self._convert_fsr_datetime_to_iso_8601(lastUpdatedFrom)
@@ -126,22 +135,24 @@ class CustomConnector:
         return self.generic_api_call("GET", endpoint, params=params)
 
     def get_alerts_list(
-        self,
-        alertType: Optional[
-            list[Literal["AttackIndication", "DataLeakage", "Phishing", "BrandSecurity", "ExploitableData", "vip"]]
-        ] = None,
-        severity: Optional[list[Literal["High", "Medium", "Low"]]] = None,
-        sourceType: Optional[
-            list[Literal["ApplicationStores", "BlackMarkets", "HackingForums", "SocialMedia", "PasteSites", "Others"]]
-        ] = None,
-        networkType: Optional[list[Literal["ClearWeb", "DarkWeb"]]] = None,
-        matchedAssetValue: Optional[str] = None,
-        tags: Optional[str] = None,
-        remediationStatus: Optional[
-            list[Literal["InProgress", "Pending", "CancellationInProgress", "Cancelled", "CompletedSuccessfully", "Failed"]]
-        ] = None,
-        sourceDateFrom: Optional[str] = None,
-        sourceDateTo: Optional[str] = None,
+            self,
+            alertType: Optional[
+                list[Literal["AttackIndication", "DataLeakage", "Phishing", "BrandSecurity", "ExploitableData", "vip"]]
+            ] = None,
+            severity: Optional[list[Literal["High", "Medium", "Low"]]] = None,
+            sourceType: Optional[
+                list[Literal[
+                    "ApplicationStores", "BlackMarkets", "HackingForums", "SocialMedia", "PasteSites", "Others"]]
+            ] = None,
+            networkType: Optional[list[Literal["ClearWeb", "DarkWeb"]]] = None,
+            matchedAssetValue: Optional[str] = None,
+            tags: Optional[str] = None,
+            remediationStatus: Optional[
+                list[Literal[
+                    "InProgress", "Pending", "CancellationInProgress", "Cancelled", "CompletedSuccessfully", "Failed"]]
+            ] = None,
+            sourceDateFrom: Optional[str] = None,
+            sourceDateTo: Optional[str] = None,
     ) -> dict:
         """Alerts - Get alerts list"""
         endpoint = "/public/v2/data/alerts/alerts-list"

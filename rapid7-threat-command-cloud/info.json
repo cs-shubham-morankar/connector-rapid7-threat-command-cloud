@@ -1,0 +1,450 @@
+{
+  "name": "rapid7-threat-command-cloud",
+  "version": "1.0.0",
+  "label": "Rapid7 Threat Command Cloud",
+  "description": "Rapid7 Threat Command Cloud is a digital risk protection and external threat intelligence platform that helps organizations monitor, detect, and mitigate threats originating outside their perimeters (web, deep web, dark web).",
+  "publisher": "Fortinet CSE",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "contributor": "Daehyeob Kim",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-rapid7-threat-command-cloud/blob/release/1.0.0/docs/readme.md",
+  "icon_large_name": "large.png",
+  "icon_small_name": "small.png",
+  "category": [
+    "Threat Intelligence"
+  ],
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "description": "Specify the URL of the Rapid7 server to connect and perform automated operations.",
+        "type": "text",
+        "name": "url",
+        "required": true,
+        "visible": true,
+        "editable": true,
+        "tooltip": "Specify the URL of the Rapid7 server to connect and perform automated operations.",
+        "value": "https://api.ti.insight.rapid7.com"
+      },
+      {
+        "title": "Account ID",
+        "description": "Specify the account ID to connect to the endpoint and perform automated operations",
+        "type": "text",
+        "name": "account_id",
+        "required": true,
+        "visible": true,
+        "editable": true,
+        "tooltip": "Specify the account ID to connect to the endpoint and perform automated operations"
+      },
+      {
+        "title": "API Key",
+        "description": "Specify the API Key to connect to the endpoint and perform automated operations",
+        "type": "password",
+        "name": "api_key",
+        "required": true,
+        "visible": true,
+        "editable": true,
+        "tooltip": "Specify the API Key to connect to the endpoint and perform automated operations"
+      },
+      {
+        "title": "Verify SSL",
+        "description": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is selected, i.e., set to true.",
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "required": false,
+        "visible": true,
+        "editable": true,
+        "value": true,
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is selected, i.e., set to true."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "title": "Get IOC Sources",
+      "operation": "get_ioc_sources",
+      "description": "Retrieve a list of IOC sources from rapid7 threat command cloud server.",
+      "open": false,
+      "category": "investigation",
+      "annotation": "get_ioc_sources",
+      "parameters": [],
+      "output_schema": {}
+    },
+    {
+      "title": "Get IOCs by Filter",
+      "operation": "get_iocs_by_filter",
+      "description": "Retrieve a list of IOCs from the Rapid7 Threat Command cloud server based on the Last Updated From parameter you specified.",
+      "category": "investigation",
+      "annotation": "get_iocs_by_filter",
+      "parameters": [
+        {
+          "title": "Last Updated From",
+          "description": "Select a date and time to retrieve results that include only items last updated after the specified timestamp.",
+          "type": "datetime",
+          "name": "lastUpdatedFrom",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Select a date and time to retrieve results that include only items last updated after the specified timestamp."
+        },
+        {
+          "title": "Offset",
+          "description": "Specify the number of records to skip when retrieving records from Dragos SiteStore server.",
+          "type": "integer",
+          "name": "offset",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the number of records to skip when retrieving records from Dragos SiteStore server."
+        },
+        {
+          "title": "Page Size",
+          "description": "Specify the maximum number of results this operation should return, per page, in the response.",
+          "type": "integer",
+          "name": "limit",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the maximum number of results this operation should return, per page, in the response."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "title": "Get IOC by Value",
+      "operation": "get_ioc_by_value",
+      "description": "Retrieve a specific IOC details from rapid7 threat command cloud server based on the IOC value parameter you have specified.",
+      "category": "investigation",
+      "annotation": "get_ioc_by_value",
+      "parameters": [
+        {
+          "title": "IOC",
+          "description": "Specify the IOC value based on which you want to retrieve details from rapid7 threat command cloud server.",
+          "type": "text",
+          "name": "iocValue",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the IOC value based on which you want to retrieve details from rapid7 threat command cloud server."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "title": "Add IOCs to Source",
+      "operation": "add_iocs_to_source",
+      "description": "Add IOCs to the specified source in the Rapid7 Threat Command cloud server using the provided source ID and IOC value parameters.",
+      "category": "investigation",
+      "annotation": "add_iocs_to_source",
+      "parameters": [
+        {
+          "title": "Source ID",
+          "description": "Specify the ID of the source based on which you want to add IOCs.",
+          "type": "text",
+          "name": "sourceID",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the ID of the source based on which you want to add IOCs."
+        },
+        {
+          "title": "IOCs",
+          "description": "Specify a comma-separated list of IOCs to add to the source in the Rapid7 Threat Command cloud server.",
+          "type": "object",
+          "name": "iocs",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify a comma-separated list of IOCs to add to the source in the Rapid7 Threat Command cloud server.",
+          "value": [
+            {
+              "Type": "Domains",
+              "Value": "example.com"
+            },
+            {
+              "Type": "IpAddresses",
+              "Value": "0.0.0.0"
+            }
+          ]
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "title": "Change IOC Severity",
+      "operation": "change_ioc_severity",
+      "description": "Change IOC ",
+      "category": "investigation",
+      "annotation": "change_ioc_severity",
+      "parameters": [
+        {
+          "title": "IOC",
+          "description": "Specify the IOC value for which you want to update the severity in the Rapid7 Threat Command cloud server.",
+          "type": "text",
+          "name": "iocValue",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the IOC value for which you want to update the severity in the Rapid7 Threat Command cloud server."
+        },
+        {
+          "title": "Severity",
+          "description": "Select the severity level you want to assign to the IOC. Available options are: High, Medium, or Low.",
+          "type": "select",
+          "name": "severity",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "options": [
+            "High",
+            "Medium",
+            "Low"
+          ],
+          "tooltip": "Select the severity level you want to assign to the IOC. Available options are: High, Medium, or Low."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "title": "Get CVEs by IDs",
+      "operation": "get_cves_by_ids",
+      "description": "Retrieve CVE details from the Rapid7 Threat Command cloud server using the CVE IDs you provided.",
+      "category": "investigation",
+      "annotation": "get_cves_by_ids",
+      "parameters": [
+        {
+          "title": "CVE IDs",
+          "description": "Specify the list of CVE IDs for which you want to retrieve details from the Rapid7 Threat Command cloud server.",
+          "type": "object",
+          "name": "cveList",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": [
+            "CVE-1999-001",
+            "CVE-1999-002"
+          ],
+          "tooltip": "Specify the list of CVE IDs for which you want to retrieve details from the Rapid7 Threat Command cloud server. For e.g [\n    \"CVE-1999-001\",\n    \"CVE-1999-002\"]"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "title": "Get CVEs List from Account",
+      "operation": "get_cves_list_from_account",
+      "description": "Retrieve a list of CVEs from the Rapid7 Threat Command cloud server based on the Publish Date From parameter you specified.",
+      "category": "investigation",
+      "annotation": "get_cves_list_from_account",
+      "parameters": [
+        {
+          "title": "Publish Date From",
+          "description": "Select a date and time to retrieve results that include only items published after the specified timestamp.",
+          "type": "datetime",
+          "name": "publishDateFrom",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Select a date and time to retrieve results that include only items published after the specified timestamp."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "title": "Get Alerts List",
+      "operation": "get_alerts_list",
+      "description": "Retrieve list of alerts from the Rapid7 Threat Command cloud server based on the filter parameters you specified.",
+      "category": "investigation",
+      "annotation": "get_alerts_list",
+      "parameters": [
+        {
+          "title": "Alert Type",
+          "description": "Select one or more alert type from the following options to filter alerts: \"AttackIndication\", \"DataLeakage\", \"Phishing\", \"BrandSecurity\", \"ExploitableData\", \"vip\"",
+          "type": "multiselect",
+          "name": "alertType",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "options": [
+            "AttackIndication",
+            "DataLeakage",
+            "Phishing",
+            "BrandSecurity",
+            "ExploitableData",
+            "vip"
+          ],
+          "tooltip": "Select one or more alert type from the following options to filter alerts: \"AttackIndication\", \"DataLeakage\", \"Phishing\", \"BrandSecurity\", \"ExploitableData\", and \"vip\""
+        },
+        {
+          "title": "Severity",
+          "description": "Select one or more severity from the following options to filter alerts: \"High\", \"Medium\", and \"Low\"",
+          "type": "multiselect",
+          "name": "severity",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "options": [
+            "High",
+            "Medium",
+            "Low"
+          ],
+          "tooltip": "Select one or more severity from the following options to filter alerts: \"High\", \"Medium\", and \"Low\""
+        },
+        {
+          "title": "Source Type",
+          "description": "Select one or more source type from the following options to filter alerts: \"ApplicationStores\", \"BlackMarkets\", \"HackingForums\", \"SocialMedia\", \"PasteSites\", and \"Others\"",
+          "type": "multiselect",
+          "name": "sourceType",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "options": [
+            "ApplicationStores",
+            "BlackMarkets",
+            "HackingForums",
+            "SocialMedia",
+            "PasteSites",
+            "Others"
+          ],
+          "tooltip": "Select one or more source type from the following options to filter alerts: \"ApplicationStores\", \"BlackMarkets\", \"HackingForums\", \"SocialMedia\", \"PasteSites\", and \"Others\""
+        },
+        {
+          "title": "Network Type",
+          "description": "Select one or more network type from the following options to filter alerts: \"ClearWeb\", and \"DarkWeb\"",
+          "type": "multiselect",
+          "name": "networkType",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "options": [
+            "ClearWeb",
+            "DarkWeb"
+          ],
+          "tooltip": "Select one or more network type from the following options to filter alerts: \"ClearWeb\", and \"DarkWeb\""
+        },
+        {
+          "title": "Matched Asset Value",
+          "description": "Specify the matched asset value to use when filtering alerts.",
+          "type": "text",
+          "name": "matchedAssetValue",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the matched asset value to use when filtering alerts."
+        },
+        {
+          "title": "Tags",
+          "descriptions": "Specify the tags based on which you want to filter alerts.",
+          "type": "text",
+          "name": "tags",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the tags based on which you want to filter alerts."
+        },
+        {
+          "title": "Remediation Status",
+          "description": "Select one or more remediation status from the following options to filter alert: \"InProgress\", \"Pending\", \"CancellationInProgress\", \"Cancelled\", \"CompletedSuccessfully\", and \"Failed\"",
+          "type": "multiselect",
+          "name": "remediationStatus",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "options": [
+            "InProgress",
+            "Pending",
+            "CancellationInProgress",
+            "Cancelled",
+            "CompletedSuccessfully",
+            "Failed"
+          ],
+          "tooltip": "Select one or more remediation status from the following options to filter alert: \"InProgress\", \"Pending\", \"CancellationInProgress\", \"Cancelled\", \"CompletedSuccessfully\", and \"Failed\""
+        },
+        {
+          "title": "Source Date From",
+          "description": "Select a date and time to retrieve results that include only items with a source date after the specified timestamp.",
+          "type": "datetime",
+          "name": "sourceDateFrom",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Select a date and time to retrieve results that include only items with a source date after the specified timestamp."
+        },
+        {
+          "title": "Source Date To",
+          "description": "Select a date and time to retrieve results that include only items with a source date before the specified timestamp.",
+          "type": "datetime",
+          "name": "sourceDateTo",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Select a date and time to retrieve results that include only items with a source date before the specified timestamp."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "generic_api_call",
+      "title": "Execute an API Request",
+      "description": "Sends an API request to an API endpoint based on specified HTTP method, endpoint, and other input parameters that you have specified, enabling flexible API interactions tailored to user needs.",
+      "enabled": true,
+      "category": "investigation",
+      "annotation": "generic_api_call",
+      "output_schema": {},
+      "parameters": [
+        {
+          "title": "HTTP Method",
+          "description": "Select an HTTP action for the request. You can select from the following options: \n\nGET \n\nPUT \n\nPOST \n\nDELETE \n\nPATCH \n\nHEAD \n\nOPTIONS \n\nTRACE",
+          "type": "select",
+          "name": "method",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": "GET",
+          "options": [
+            "GET",
+            "PUT",
+            "POST",
+            "DELETE",
+            "PATCH",
+            "HEAD",
+            "OPTIONS",
+            "TRACE"
+          ],
+          "tooltip": "Select an HTTP action for the request. You can select from the following options: \n\nGET \n\nPUT \n\nPOST \n\nDELETE \n\nPATCH \n\nHEAD \n\nOPTIONS \n\nTRACE"
+        },
+        {
+          "title": "Endpoint",
+          "description": "Specify the target API URL path for the request. For example, if the website is https://example.com and URL path is https://example.com/images/pic.jpg, the endpoint would be /images/pic.jpg.",
+          "type": "text",
+          "name": "api_endpoint",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Should include the whole string eg: \"/api/v1/helloworld\""
+        },
+        {
+          "title": "Query Parameters",
+          "description": "Specify any optional parameters to add to the URL and refine the request.",
+          "type": "object",
+          "name": "params",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": null,
+          "tooltip": "Specify any optional parameters to add to the URL and refine the request."
+        },
+        {
+          "title": "Request Payload",
+          "description": "Specify data, as JSON, to be sent as the request payload (typically for POST or PUT requests).",
+          "type": "object",
+          "name": "json_data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": null,
+          "tooltip": "Specify data, as JSON, to be sent as the request payload (typically for POST or PUT requests)."
+        }
+      ]
+    }
+  ]
+}
