@@ -7,8 +7,11 @@ Copyright end
 
 import requests
 import arrow
+from connectors.core.connector import get_logger
 from typing import Union, Literal, Optional
 from requests.auth import HTTPBasicAuth
+
+logger = get_logger('rapid7-threat-command-cloud')
 
 
 class CustomConnector:
@@ -32,10 +35,6 @@ class CustomConnector:
             raise Exception("param api_endpoint must startswith '/'")
 
     def _delete_none_dict(self, _d: Union[dict, list, None]) -> Union[dict, list, None]:
-        if _d == None:
-            return None
-        elif isinstance(_d, list):
-            return _d
         return {k: v for k, v in _d.items() if v is not None}
 
     def _convert_fsr_datetime_to_iso_8601(self, date: Union[str, None]) -> Optional[str]:
@@ -73,8 +72,8 @@ class CustomConnector:
 
         authorization = (self.account_id, self.api_key)
 
-        params_new = self._delete_none_dict(params)
-        json_data_new = self._delete_none_dict(json_data)
+        params_new = self._delete_none_dict(params) if params else None
+        json_data_new = self._delete_none_dict(json_data) if json_data else None
 
         resp = requests.request(
             method, url, headers=headers, auth=authorization, params=params_new, json=json_data_new,
@@ -130,7 +129,7 @@ class CustomConnector:
         """Cves - Get CVEs list from account"""
         endpoint = "/public/v1/cves/get-cves-list"
         params = {
-            "publishDateFrom": self._convert_fsr_datetime_to_iso_8601(publishDateFrom),
+            "publishDateFrom": self._convert_fsr_datetime_to_iso_8601(publishDateFrom) if publishDateFrom else None,
         }
         return self.generic_api_call("GET", endpoint, params=params)
 
@@ -161,15 +160,15 @@ class CustomConnector:
             "severity": ",".join(severity) if severity else None,
             "sourceType": ",".join(sourceType) if sourceType else None,
             "networkType": ",".join(networkType) if networkType else None,
-            "matchedAssetValue": matchedAssetValue,
-            "tags": tags,
+            "matchedAssetValue": matchedAssetValue if matchedAssetValue else None,
+            "tags": tags if tags else None,
             "remediationStatus": ",".join(remediationStatus) if remediationStatus else None,
-            "sourceDateFrom": self._convert_fsr_datetime_to_timestamp(sourceDateFrom),
-            "sourceDateTo": self._convert_fsr_datetime_to_timestamp(sourceDateTo),
+            "sourceDateFrom": self._convert_fsr_datetime_to_timestamp(sourceDateFrom) if sourceDateFrom else None,
+            "sourceDateTo": self._convert_fsr_datetime_to_timestamp(sourceDateTo) if sourceDateTo else None,
         }
         return self.generic_api_call("GET", endpoint, params=params)
 
     def get_alert_by_id(self, alertID: str) -> dict:
         """Alerts - Get alerts list"""
-        endpoint = f"/public/v1/data/alerts/get-alert/{alertID}"
+        endpoint = f"/public/v1/data/alerts/get-complete-alert/{alertID}"
         return self.generic_api_call("GET", endpoint)
