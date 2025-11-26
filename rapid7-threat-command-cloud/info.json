@@ -1,13 +1,13 @@
 {
   "name": "rapid7-threat-command-cloud",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "label": "Rapid7 Threat Command Cloud",
   "description": "Rapid7 Threat Command Cloud is a digital risk protection and external threat intelligence platform that helps organizations monitor, detect, and mitigate threats originating outside their perimeters (web, deep web, dark web).",
-  "publisher": "Fortinet CSE",
+  "publisher": "Fortinet",
   "cs_approved": false,
   "cs_compatible": true,
-  "contributor": "Daehyeob Kim",
-  "help_online": "https://github.com/fortinet-fortisoar/connector-rapid7-threat-command-cloud/blob/release/1.0.0/docs/readme.md",
+  "contributor": "anonyges",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-rapid7-threat-command-cloud/blob/release/1.1.0/docs/readme.md",
   "icon_large_name": "large.png",
   "icon_small_name": "small.png",
   "category": [
@@ -378,6 +378,26 @@
           "visible": true,
           "editable": true,
           "tooltip": "Select a date and time to retrieve results that include only items with a source date before the specified timestamp."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "title": "Get Alert Details",
+      "operation": "get_alert_by_id",
+      "description": "Retrieve alert details from the Rapid7 Threat Command cloud server using the alert ID you provided.",
+      "category": "investigation",
+      "annotation": "get_alert_by_id",
+      "parameters": [
+        {
+          "title": "Alert ID",
+          "description": "Specify the alert ID for which you want to retrieve details from the Rapid7 Threat Command cloud server.",
+          "type": "text",
+          "name": "alertID",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the alert ID for which you want to retrieve details from the Rapid7 Threat Command cloud server."
         }
       ],
       "output_schema": {}

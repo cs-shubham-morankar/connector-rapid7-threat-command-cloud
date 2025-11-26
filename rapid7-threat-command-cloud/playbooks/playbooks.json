@@ -2,398 +2,126 @@
   "type": "workflow_collections",
   "data": [
     {
-      "uuid": "0bee26a6-057b-4ede-89a5-93cc4913acce",
       "@type": "WorkflowCollection",
+      "name": "Sample - Rapid7 Threat Command Cloud - 1.1.0",
+      "description": "Sample playbooks for \"Rapid7 Threat Command Cloud\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
+      "visible": true,
+      "image": null,
+      "uuid": "0bee26a6-057b-4ede-89a5-93cc4913acce",
+      "id": 443,
+      "deletedAt": null,
+      "importedBy": [],
+      "recordTags": [
+        "Rapid7",
+        "rapid7-threat-command-cloud"
+      ],
       "workflows": [
         {
           "@type": "Workflow",
-          "uuid": "2d8b554c-0c3c-4efa-b04d-00552bf5630f",
+          "triggerLimit": null,
+          "name": "Get IOC Sources",
+          "aliasName": null,
+          "tag": "#Rapid7 Threat Command Cloud",
+          "description": "Retrieve a list of IOC sources from rapid7 threat command cloud server.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": null,
           "collection": "/api/3/workflow_collections/0bee26a6-057b-4ede-89a5-93cc4913acce",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/9b9898bf-ae86-4750-974a-08f2342601c6",
           "steps": [
             {
-              "uuid": "9b9898bf-ae86-4750-974a-08f2342601c6",
-              "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "step_variables": {
-                  "input": {
-                    "params": []
-                  }
-                }
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
-            },
-            {
-              "uuid": "2bdaeb63-ac55-4b94-96e0-0400b044089c",
               "@type": "WorkflowStep",
               "name": "Get IOC Sources",
               "description": null,
-              "status": null,
               "arguments": {
                 "name": "Rapid7 Threat Command Cloud",
                 "config": "",
                 "params": [],
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "rapid7-threat-command-cloud",
                 "operation": "get_ioc_sources",
                 "operationTitle": "Get IOC Sources"
               },
-              "left": "188",
+              "status": null,
               "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "2bdaeb63-ac55-4b94-96e0-0400b044089c"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "9b9898bf-ae86-4750-974a-08f2342601c6"
             }
           ],
-          "triggerLimit": null,
-          "description": "Retrieve a list of IOC sources from rapid7 threat command cloud server.",
-          "name": "Get IOC Sources",
-          "tag": "#Rapid7 Threat Command Cloud",
-          "recordTags": [
-            "Rapid7",
-            "rapid7-threat-command-cloud"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/9b9898bf-ae86-4750-974a-08f2342601c6",
           "routes": [
             {
-              "uuid": "02d2b9e1-b09d-418a-9bcc-5c2e1597afe9",
               "@type": "WorkflowRoute",
-              "label": null,
-              "isExecuted": false,
               "name": "Start-> Get IOC Sources",
+              "targetStep": "/api/3/workflow_steps/2bdaeb63-ac55-4b94-96e0-0400b044089c",
               "sourceStep": "/api/3/workflow_steps/9b9898bf-ae86-4750-974a-08f2342601c6",
-              "targetStep": "/api/3/workflow_steps/2bdaeb63-ac55-4b94-96e0-0400b044089c"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "b0fbe66f-f8b9-4833-bd1b-433716004373",
-          "collection": "/api/3/workflow_collections/0bee26a6-057b-4ede-89a5-93cc4913acce",
-          "steps": [
-            {
-              "uuid": "953d5ac5-6680-43c9-801a-25b7d4374570",
-              "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "step_variables": {
-                  "input": {
-                    "params": []
-                  }
-                }
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
-            },
-            {
-              "uuid": "3c97477c-2805-4be6-8299-4815a74cff97",
-              "@type": "WorkflowStep",
-              "name": "Get IOCs by Filter",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "name": "Rapid7 Threat Command Cloud",
-                "config": "",
-                "params": {
-                  "lastUpdatedFrom": "",
-                  "offset": "",
-                  "limit": ""
-                },
-                "version": "1.0.0",
-                "connector": "rapid7-threat-command-cloud",
-                "operation": "get_iocs_by_filter",
-                "operationTitle": "Get IOCs by Filter"
-              },
-              "left": "188",
-              "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "02d2b9e1-b09d-418a-9bcc-5c2e1597afe9"
             }
           ],
-          "triggerLimit": null,
-          "description": "Retrieve a list of IOCs from the Rapid7 Threat Command cloud server based on the Last Updated From parameter you specified.",
-          "name": "Get IOCs by Filter",
-          "tag": "#Rapid7 Threat Command Cloud",
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "2d8b554c-0c3c-4efa-b04d-00552bf5630f",
+          "id": 6263,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
           "recordTags": [
             "Rapid7",
             "rapid7-threat-command-cloud"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/953d5ac5-6680-43c9-801a-25b7d4374570",
-          "routes": [
-            {
-              "uuid": "a1116da6-84f9-41ef-bed2-feae9023ba2e",
-              "@type": "WorkflowRoute",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Get IOCs by Filter",
-              "sourceStep": "/api/3/workflow_steps/953d5ac5-6680-43c9-801a-25b7d4374570",
-              "targetStep": "/api/3/workflow_steps/3c97477c-2805-4be6-8299-4815a74cff97"
-            }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "86c0124a-aee4-4f26-b029-55871c456867",
-          "collection": "/api/3/workflow_collections/0bee26a6-057b-4ede-89a5-93cc4913acce",
-          "steps": [
-            {
-              "uuid": "3bfa9034-7dd2-4ede-8233-8a5b5fb464e1",
-              "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "step_variables": {
-                  "input": {
-                    "params": []
-                  }
-                }
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
-            },
-            {
-              "uuid": "7069275a-8008-4899-97b8-ff4f3222929a",
-              "@type": "WorkflowStep",
-              "name": "Get IOC by Value",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "name": "Rapid7 Threat Command Cloud",
-                "config": "",
-                "params": {
-                  "iocValue": ""
-                },
-                "version": "1.0.0",
-                "connector": "rapid7-threat-command-cloud",
-                "operation": "get_ioc_by_value",
-                "operationTitle": "Get IOC by Value"
-              },
-              "left": "188",
-              "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
-            }
-          ],
           "triggerLimit": null,
-          "description": "Retrieve a specific IOC details from rapid7 threat command cloud server based on the IOC value parameter you have specified.",
-          "name": "Get IOC by Value",
+          "name": "Get CVEs by IDs",
+          "aliasName": null,
           "tag": "#Rapid7 Threat Command Cloud",
-          "recordTags": [
-            "Rapid7",
-            "rapid7-threat-command-cloud"
-          ],
+          "description": "Retrieve CVE details from the Rapid7 Threat Command cloud server using the CVE IDs you provided.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/3bfa9034-7dd2-4ede-8233-8a5b5fb464e1",
-          "routes": [
-            {
-              "uuid": "7a5fd3bf-1c7a-44dc-b4a1-6ecca59e2218",
-              "@type": "WorkflowRoute",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Get IOC by Value",
-              "sourceStep": "/api/3/workflow_steps/3bfa9034-7dd2-4ede-8233-8a5b5fb464e1",
-              "targetStep": "/api/3/workflow_steps/7069275a-8008-4899-97b8-ff4f3222929a"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "4c0c1d7f-483e-436b-b445-77e0dfbd6c42",
+          "lastModifyDate": null,
           "collection": "/api/3/workflow_collections/0bee26a6-057b-4ede-89a5-93cc4913acce",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/4176642b-ae26-49e2-8786-cab8ea6ad0a0",
           "steps": [
             {
-              "uuid": "7c82f2aa-8741-47d1-a279-083baca2c21b",
-              "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "step_variables": {
-                  "input": {
-                    "params": []
-                  }
-                }
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
-            },
-            {
-              "uuid": "b0783dc1-946f-43c6-9223-c7dd255208c0",
-              "@type": "WorkflowStep",
-              "name": "Add IOCs to Source",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "name": "Rapid7 Threat Command Cloud",
-                "config": "",
-                "params": {
-                  "sourceID": "",
-                  "iocs": [
-                    {
-                      "Type": "Domains",
-                      "Value": "example.com"
-                    },
-                    {
-                      "Type": "IpAddresses",
-                      "Value": "0.0.0.0"
-                    }
-                  ]
-                },
-                "version": "1.0.0",
-                "connector": "rapid7-threat-command-cloud",
-                "operation": "add_iocs_to_source",
-                "operationTitle": "Add IOCs to Source"
-              },
-              "left": "188",
-              "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
-            }
-          ],
-          "triggerLimit": null,
-          "description": "Add IOCs to the specified source in the Rapid7 Threat Command cloud server using the provided source ID and IOC value parameters.",
-          "name": "Add IOCs to Source",
-          "tag": "#Rapid7 Threat Command Cloud",
-          "recordTags": [
-            "Rapid7",
-            "rapid7-threat-command-cloud"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/7c82f2aa-8741-47d1-a279-083baca2c21b",
-          "routes": [
-            {
-              "uuid": "52e6bbcf-fab6-4488-8ec2-c198a53403ea",
-              "@type": "WorkflowRoute",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Add IOCs to Source",
-              "sourceStep": "/api/3/workflow_steps/7c82f2aa-8741-47d1-a279-083baca2c21b",
-              "targetStep": "/api/3/workflow_steps/b0783dc1-946f-43c6-9223-c7dd255208c0"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "eb3cafab-e44f-47b7-99cb-c8ef4ee1a722",
-          "collection": "/api/3/workflow_collections/0bee26a6-057b-4ede-89a5-93cc4913acce",
-          "steps": [
-            {
-              "uuid": "3243fd99-167d-4272-8aab-e407b9b6b169",
-              "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "step_variables": {
-                  "input": {
-                    "params": []
-                  }
-                }
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
-            },
-            {
-              "uuid": "410e02af-de32-4f99-abd1-291a75c75794",
-              "@type": "WorkflowStep",
-              "name": "Change IOC Severity",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "name": "Rapid7 Threat Command Cloud",
-                "config": "",
-                "params": {
-                  "iocValue": "",
-                  "severity": ""
-                },
-                "version": "1.0.0",
-                "connector": "rapid7-threat-command-cloud",
-                "operation": "change_ioc_severity",
-                "operationTitle": "Change IOC Severity"
-              },
-              "left": "188",
-              "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
-            }
-          ],
-          "triggerLimit": null,
-          "description": "Change IOC ",
-          "name": "Change IOC Severity",
-          "tag": "#Rapid7 Threat Command Cloud",
-          "recordTags": [
-            "Rapid7",
-            "rapid7-threat-command-cloud"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/3243fd99-167d-4272-8aab-e407b9b6b169",
-          "routes": [
-            {
-              "uuid": "b1102ec4-e307-4d11-8acc-6ee8489e9ec7",
-              "@type": "WorkflowRoute",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Change IOC Severity",
-              "sourceStep": "/api/3/workflow_steps/3243fd99-167d-4272-8aab-e407b9b6b169",
-              "targetStep": "/api/3/workflow_steps/410e02af-de32-4f99-abd1-291a75c75794"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "39a10b1e-73e4-4e33-9b02-74ffb4c6f750",
-          "collection": "/api/3/workflow_collections/0bee26a6-057b-4ede-89a5-93cc4913acce",
-          "steps": [
-            {
-              "uuid": "4176642b-ae26-49e2-8786-cab8ea6ad0a0",
-              "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "step_variables": {
-                  "input": {
-                    "params": []
-                  }
-                }
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
-            },
-            {
-              "uuid": "a68a4b26-c80d-412f-8ad4-049d2aa7ef9c",
               "@type": "WorkflowStep",
               "name": "Get CVEs by IDs",
               "description": null,
-              "status": null,
               "arguments": {
                 "name": "Rapid7 Threat Command Cloud",
                 "config": "",
@@ -403,53 +131,22 @@
                     "CVE-1999-002"
                   ]
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "rapid7-threat-command-cloud",
                 "operation": "get_cves_by_ids",
                 "operationTitle": "Get CVEs by IDs"
               },
-              "left": "188",
+              "status": null,
               "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
-            }
-          ],
-          "triggerLimit": null,
-          "description": "Retrieve CVE details from the Rapid7 Threat Command cloud server using the CVE IDs you provided.",
-          "name": "Get CVEs by IDs",
-          "tag": "#Rapid7 Threat Command Cloud",
-          "recordTags": [
-            "Rapid7",
-            "rapid7-threat-command-cloud"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/4176642b-ae26-49e2-8786-cab8ea6ad0a0",
-          "routes": [
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "a68a4b26-c80d-412f-8ad4-049d2aa7ef9c"
+            },
             {
-              "uuid": "4c560300-8166-4001-8d97-780807b4c97f",
-              "@type": "WorkflowRoute",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Get CVEs by IDs",
-              "sourceStep": "/api/3/workflow_steps/4176642b-ae26-49e2-8786-cab8ea6ad0a0",
-              "targetStep": "/api/3/workflow_steps/a68a4b26-c80d-412f-8ad4-049d2aa7ef9c"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "c96bbb3f-d76f-4999-83c8-a143f6d7f7a0",
-          "collection": "/api/3/workflow_collections/0bee26a6-057b-4ede-89a5-93cc4913acce",
-          "steps": [
-            {
-              "uuid": "3db54936-4ec1-4a6f-bc3c-c57da49a1376",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
-              "status": null,
               "arguments": {
                 "step_variables": {
                   "input": {
@@ -457,217 +154,763 @@
                   }
                 }
               },
-              "left": "20",
+              "status": null,
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "4176642b-ae26-49e2-8786-cab8ea6ad0a0"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get CVEs by IDs",
+              "targetStep": "/api/3/workflow_steps/a68a4b26-c80d-412f-8ad4-049d2aa7ef9c",
+              "sourceStep": "/api/3/workflow_steps/4176642b-ae26-49e2-8786-cab8ea6ad0a0",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "4c560300-8166-4001-8d97-780807b4c97f"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "39a10b1e-73e4-4e33-9b02-74ffb4c6f750",
+          "id": 6268,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Rapid7",
+            "rapid7-threat-command-cloud"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Alerts List",
+          "aliasName": null,
+          "tag": "#Rapid7 Threat Command Cloud",
+          "description": "Retrieve list of alerts from the Rapid7 Threat Command cloud server based on the filter parameters you specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/0bee26a6-057b-4ede-89a5-93cc4913acce",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/7e39106e-61e3-49e5-87aa-04f22638bf97",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Alerts List",
+              "description": null,
+              "arguments": {
+                "name": "Rapid7 Threat Command Cloud",
+                "config": "",
+                "params": {
+                  "tags": "",
+                  "severity": "",
+                  "alertType": "",
+                  "sourceType": "",
+                  "networkType": "",
+                  "sourceDateTo": "",
+                  "sourceDateFrom": "",
+                  "matchedAssetValue": "",
+                  "remediationStatus": ""
+                },
+                "version": "1.1.0",
+                "connector": "rapid7-threat-command-cloud",
+                "operation": "get_alerts_list",
+                "operationTitle": "Get Alerts List"
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "de909885-042d-4be0-ab50-cf5542eafb22"
             },
             {
-              "uuid": "09c24647-0759-4373-a73c-cc496826bdc2",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "7e39106e-61e3-49e5-87aa-04f22638bf97"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get Alerts List",
+              "targetStep": "/api/3/workflow_steps/de909885-042d-4be0-ab50-cf5542eafb22",
+              "sourceStep": "/api/3/workflow_steps/7e39106e-61e3-49e5-87aa-04f22638bf97",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "968b092e-c770-4aa3-a11b-c4c3404b8484"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "455d90cc-1481-4d52-855e-c8aadaaaf375",
+          "id": 6270,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Rapid7",
+            "rapid7-threat-command-cloud"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Add IOCs to Source",
+          "aliasName": null,
+          "tag": "#Rapid7 Threat Command Cloud",
+          "description": "Add IOCs to the specified source in the Rapid7 Threat Command cloud server using the provided source ID and IOC value parameters.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/0bee26a6-057b-4ede-89a5-93cc4913acce",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/7c82f2aa-8741-47d1-a279-083baca2c21b",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Add IOCs to Source",
+              "description": null,
+              "arguments": {
+                "name": "Rapid7 Threat Command Cloud",
+                "config": "",
+                "params": {
+                  "iocs": [
+                    {
+                      "Type": "Domains",
+                      "Value": "example.com"
+                    },
+                    {
+                      "Type": "IpAddresses",
+                      "Value": "0.0.0.0"
+                    }
+                  ],
+                  "sourceID": ""
+                },
+                "version": "1.1.0",
+                "connector": "rapid7-threat-command-cloud",
+                "operation": "add_iocs_to_source",
+                "operationTitle": "Add IOCs to Source"
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "b0783dc1-946f-43c6-9223-c7dd255208c0"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "7c82f2aa-8741-47d1-a279-083baca2c21b"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Add IOCs to Source",
+              "targetStep": "/api/3/workflow_steps/b0783dc1-946f-43c6-9223-c7dd255208c0",
+              "sourceStep": "/api/3/workflow_steps/7c82f2aa-8741-47d1-a279-083baca2c21b",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "52e6bbcf-fab6-4488-8ec2-c198a53403ea"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "4c0c1d7f-483e-436b-b445-77e0dfbd6c42",
+          "id": 6266,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Rapid7",
+            "rapid7-threat-command-cloud"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get IOC by Value",
+          "aliasName": null,
+          "tag": "#Rapid7 Threat Command Cloud",
+          "description": "Retrieve a specific IOC details from rapid7 threat command cloud server based on the IOC value parameter you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/0bee26a6-057b-4ede-89a5-93cc4913acce",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/3bfa9034-7dd2-4ede-8233-8a5b5fb464e1",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get IOC by Value",
+              "description": null,
+              "arguments": {
+                "name": "Rapid7 Threat Command Cloud",
+                "config": "",
+                "params": {
+                  "iocValue": ""
+                },
+                "version": "1.1.0",
+                "connector": "rapid7-threat-command-cloud",
+                "operation": "get_ioc_by_value",
+                "operationTitle": "Get IOC by Value"
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "7069275a-8008-4899-97b8-ff4f3222929a"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "3bfa9034-7dd2-4ede-8233-8a5b5fb464e1"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get IOC by Value",
+              "targetStep": "/api/3/workflow_steps/7069275a-8008-4899-97b8-ff4f3222929a",
+              "sourceStep": "/api/3/workflow_steps/3bfa9034-7dd2-4ede-8233-8a5b5fb464e1",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "7a5fd3bf-1c7a-44dc-b4a1-6ecca59e2218"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "86c0124a-aee4-4f26-b029-55871c456867",
+          "id": 6265,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Rapid7",
+            "rapid7-threat-command-cloud"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get IOCs by Filter",
+          "aliasName": null,
+          "tag": "#Rapid7 Threat Command Cloud",
+          "description": "Retrieve a list of IOCs from the Rapid7 Threat Command cloud server based on the Last Updated From parameter you specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/0bee26a6-057b-4ede-89a5-93cc4913acce",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/953d5ac5-6680-43c9-801a-25b7d4374570",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get IOCs by Filter",
+              "description": null,
+              "arguments": {
+                "name": "Rapid7 Threat Command Cloud",
+                "config": "",
+                "params": {
+                  "limit": "",
+                  "offset": "",
+                  "lastUpdatedFrom": ""
+                },
+                "version": "1.1.0",
+                "connector": "rapid7-threat-command-cloud",
+                "operation": "get_iocs_by_filter",
+                "operationTitle": "Get IOCs by Filter"
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "3c97477c-2805-4be6-8299-4815a74cff97"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "953d5ac5-6680-43c9-801a-25b7d4374570"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get IOCs by Filter",
+              "targetStep": "/api/3/workflow_steps/3c97477c-2805-4be6-8299-4815a74cff97",
+              "sourceStep": "/api/3/workflow_steps/953d5ac5-6680-43c9-801a-25b7d4374570",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "a1116da6-84f9-41ef-bed2-feae9023ba2e"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "b0fbe66f-f8b9-4833-bd1b-433716004373",
+          "id": 6264,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Rapid7",
+            "rapid7-threat-command-cloud"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get CVEs List from Account",
+          "aliasName": null,
+          "tag": "#Rapid7 Threat Command Cloud",
+          "description": "Retrieve a list of CVEs from the Rapid7 Threat Command cloud server based on the Publish Date From parameter you specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/0bee26a6-057b-4ede-89a5-93cc4913acce",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/3db54936-4ec1-4a6f-bc3c-c57da49a1376",
+          "steps": [
+            {
               "@type": "WorkflowStep",
               "name": "Get CVEs List from Account",
               "description": null,
-              "status": null,
               "arguments": {
                 "name": "Rapid7 Threat Command Cloud",
                 "config": "",
                 "params": {
                   "publishDateFrom": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "rapid7-threat-command-cloud",
                 "operation": "get_cves_list_from_account",
                 "operationTitle": "Get CVEs List from Account"
               },
-              "left": "188",
+              "status": null,
               "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "09c24647-0759-4373-a73c-cc496826bdc2"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "3db54936-4ec1-4a6f-bc3c-c57da49a1376"
             }
           ],
-          "triggerLimit": null,
-          "description": "Retrieve a list of CVEs from the Rapid7 Threat Command cloud server based on the Publish Date From parameter you specified.",
-          "name": "Get CVEs List from Account",
-          "tag": "#Rapid7 Threat Command Cloud",
-          "recordTags": [
-            "Rapid7",
-            "rapid7-threat-command-cloud"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/3db54936-4ec1-4a6f-bc3c-c57da49a1376",
           "routes": [
             {
-              "uuid": "cc78a7ca-b305-4eda-b414-25713806a819",
               "@type": "WorkflowRoute",
-              "label": null,
-              "isExecuted": false,
               "name": "Start-> Get CVEs List from Account",
+              "targetStep": "/api/3/workflow_steps/09c24647-0759-4373-a73c-cc496826bdc2",
               "sourceStep": "/api/3/workflow_steps/3db54936-4ec1-4a6f-bc3c-c57da49a1376",
-              "targetStep": "/api/3/workflow_steps/09c24647-0759-4373-a73c-cc496826bdc2"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "455d90cc-1481-4d52-855e-c8aadaaaf375",
-          "collection": "/api/3/workflow_collections/0bee26a6-057b-4ede-89a5-93cc4913acce",
-          "steps": [
-            {
-              "uuid": "7e39106e-61e3-49e5-87aa-04f22638bf97",
-              "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "step_variables": {
-                  "input": {
-                    "params": []
-                  }
-                }
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
-            },
-            {
-              "uuid": "de909885-042d-4be0-ab50-cf5542eafb22",
-              "@type": "WorkflowStep",
-              "name": "Get Alerts List",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "name": "Rapid7 Threat Command Cloud",
-                "config": "",
-                "params": {
-                  "alertType": "",
-                  "severity": "",
-                  "sourceType": "",
-                  "networkType": "",
-                  "matchedAssetValue": "",
-                  "tags": "",
-                  "remediationStatus": "",
-                  "sourceDateFrom": "",
-                  "sourceDateTo": ""
-                },
-                "version": "1.0.0",
-                "connector": "rapid7-threat-command-cloud",
-                "operation": "get_alerts_list",
-                "operationTitle": "Get Alerts List"
-              },
-              "left": "188",
-              "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "cc78a7ca-b305-4eda-b414-25713806a819"
             }
           ],
-          "triggerLimit": null,
-          "description": "Retrieve list of alerts from the Rapid7 Threat Command cloud server based on the filter parameters you specified.",
-          "name": "Get Alerts List",
-          "tag": "#Rapid7 Threat Command Cloud",
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "c96bbb3f-d76f-4999-83c8-a143f6d7f7a0",
+          "id": 6269,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
           "recordTags": [
             "Rapid7",
             "rapid7-threat-command-cloud"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/7e39106e-61e3-49e5-87aa-04f22638bf97",
-          "routes": [
-            {
-              "uuid": "968b092e-c770-4aa3-a11b-c4c3404b8484",
-              "@type": "WorkflowRoute",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Get Alerts List",
-              "sourceStep": "/api/3/workflow_steps/7e39106e-61e3-49e5-87aa-04f22638bf97",
-              "targetStep": "/api/3/workflow_steps/de909885-042d-4be0-ab50-cf5542eafb22"
-            }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "ca566dcb-f920-4bd9-b1e9-2bb6cbbf3373",
+          "triggerLimit": null,
+          "name": "Execute an API Request",
+          "aliasName": null,
+          "tag": "#Rapid7 Threat Command Cloud",
+          "description": "Sends an API request to an API endpoint based on specified HTTP method, endpoint, and other input parameters that you have specified, enabling flexible API interactions tailored to user needs.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": null,
           "collection": "/api/3/workflow_collections/0bee26a6-057b-4ede-89a5-93cc4913acce",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/200c7f43-4fce-43b9-9518-bb28a98114a3",
           "steps": [
             {
-              "uuid": "200c7f43-4fce-43b9-9518-bb28a98114a3",
-              "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "step_variables": {
-                  "input": {
-                    "params": []
-                  }
-                }
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
-            },
-            {
-              "uuid": "1d1a3fc7-5841-4496-a437-525cef056ef0",
               "@type": "WorkflowStep",
               "name": "Execute an API Request",
               "description": null,
-              "status": null,
               "arguments": {
                 "name": "Rapid7 Threat Command Cloud",
                 "config": "",
                 "params": {
                   "method": "GET",
-                  "api_endpoint": "",
                   "params": "",
-                  "json_data": ""
+                  "json_data": "",
+                  "api_endpoint": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "rapid7-threat-command-cloud",
                 "operation": "generic_api_call",
                 "operationTitle": "Execute an API Request"
               },
-              "left": "188",
+              "status": null,
               "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "1d1a3fc7-5841-4496-a437-525cef056ef0"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "200c7f43-4fce-43b9-9518-bb28a98114a3"
             }
           ],
-          "triggerLimit": null,
-          "description": "Sends an API request to an API endpoint based on specified HTTP method, endpoint, and other input parameters that you have specified, enabling flexible API interactions tailored to user needs.",
-          "name": "Execute an API Request",
-          "tag": "#Rapid7 Threat Command Cloud",
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Execute an API Request",
+              "targetStep": "/api/3/workflow_steps/1d1a3fc7-5841-4496-a437-525cef056ef0",
+              "sourceStep": "/api/3/workflow_steps/200c7f43-4fce-43b9-9518-bb28a98114a3",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "6579ac3c-f47e-4f6c-b639-0779a2db31dd"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "ca566dcb-f920-4bd9-b1e9-2bb6cbbf3373",
+          "id": 6271,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
           "recordTags": [
             "Rapid7",
             "rapid7-threat-command-cloud"
-          ],
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Change IOC Severity",
+          "aliasName": null,
+          "tag": "#Rapid7 Threat Command Cloud",
+          "description": "Change IOC ",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/200c7f43-4fce-43b9-9518-bb28a98114a3",
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/0bee26a6-057b-4ede-89a5-93cc4913acce",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/3243fd99-167d-4272-8aab-e407b9b6b169",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Change IOC Severity",
+              "description": null,
+              "arguments": {
+                "name": "Rapid7 Threat Command Cloud",
+                "config": "",
+                "params": {
+                  "iocValue": "",
+                  "severity": ""
+                },
+                "version": "1.1.0",
+                "connector": "rapid7-threat-command-cloud",
+                "operation": "change_ioc_severity",
+                "operationTitle": "Change IOC Severity"
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "410e02af-de32-4f99-abd1-291a75c75794"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "3243fd99-167d-4272-8aab-e407b9b6b169"
+            }
+          ],
           "routes": [
             {
-              "uuid": "6579ac3c-f47e-4f6c-b639-0779a2db31dd",
               "@type": "WorkflowRoute",
+              "name": "Start-> Change IOC Severity",
+              "targetStep": "/api/3/workflow_steps/410e02af-de32-4f99-abd1-291a75c75794",
+              "sourceStep": "/api/3/workflow_steps/3243fd99-167d-4272-8aab-e407b9b6b169",
               "label": null,
               "isExecuted": false,
-              "name": "Start-> Execute an API Request",
-              "sourceStep": "/api/3/workflow_steps/200c7f43-4fce-43b9-9518-bb28a98114a3",
-              "targetStep": "/api/3/workflow_steps/1d1a3fc7-5841-4496-a437-525cef056ef0"
+              "group": null,
+              "uuid": "b1102ec4-e307-4d11-8acc-6ee8489e9ec7"
             }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "eb3cafab-e44f-47b7-99cb-c8ef4ee1a722",
+          "id": 6267,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Rapid7",
+            "rapid7-threat-command-cloud"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Alert Details",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieve alert details from the Rapid7 Threat Command cloud server using the alert ID you provided.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1764072147,
+          "collection": "/api/3/workflow_collections/0bee26a6-057b-4ede-89a5-93cc4913acce",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/42b5d300-3ce9-49e6-a8db-8412210d4e64",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Alert Details",
+              "description": null,
+              "arguments": {
+                "name": "Rapid7 Threat Command Cloud",
+                "config": "db753838-1bae-4325-85b2-0b1fb5b1fce1",
+                "params": {
+                  "alertID": "1"
+                },
+                "version": "1.1.0",
+                "connector": "rapid7-threat-command-cloud",
+                "operation": "get_alert_by_id",
+                "operationTitle": "Get Alert Details",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "7331ee19-a4f9-4ab1-92bf-1e411947517c"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "42b5d300-3ce9-49e6-a8db-8412210d4e64"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert Details",
+              "targetStep": "/api/3/workflow_steps/7331ee19-a4f9-4ab1-92bf-1e411947517c",
+              "sourceStep": "/api/3/workflow_steps/42b5d300-3ce9-49e6-a8db-8412210d4e64",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "49f6c224-59d9-4f80-9194-ddcc9b33d881"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "fc109fd2-1f81-4e37-9b80-f6d474b6c60f",
+          "id": 6272,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Rapid7",
+            "rapid7-threat-command-cloud"
           ]
         }
-      ],
-      "name": "Sample - Rapid7 Threat Command Cloud - 1.0.0",
-      "description": "Rapid7 Threat Command Cloud is a digital risk protection and external threat intelligence platform that helps organizations monitor, detect, and mitigate threats originating outside their perimeters (web, deep web, dark web).",
-      "visible": true,
-      "recordTags": [
-        "Rapid7",
-        "rapid7-threat-command-cloud"
       ]
     }
+  ],
+  "exported_tags": [
+    "Rapid7",
+    "rapid7-threat-command-cloud"
   ]
 }
