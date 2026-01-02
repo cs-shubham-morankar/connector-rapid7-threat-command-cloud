@@ -1,13 +1,13 @@
 {
   "name": "rapid7-threat-command-cloud",
-  "version": "1.2.0",
+  "version": "1.1.1",
   "label": "Rapid7 Threat Command Cloud",
   "description": "Rapid7 Threat Command Cloud is a digital risk protection and external threat intelligence platform that helps organizations monitor, detect, and mitigate threats originating outside their perimeters (web, deep web, dark web).",
   "publisher": "Fortinet",
   "cs_approved": false,
   "cs_compatible": true,
   "contributor": "anonyges",
-  "help_online": "https://github.com/fortinet-fortisoar/connector-rapid7-threat-command-cloud/blob/release/1.2.0/docs/readme.md",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-rapid7-threat-command-cloud/blob/release/1.1.1/docs/readme.md",
   "icon_large_name": "large.png",
   "icon_small_name": "small.png",
   "category": [

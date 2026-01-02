@@ -6,7 +6,7 @@ organizations monitor, detect, and mitigate threats originating outside their pe
 
 ### Version Information
 
-Connector Version: 1.2.0
+Connector Version: 1.1.1
 
 Authored By: Fortinet
 
@@ -14,9 +14,9 @@ Contributor: anonyges
 
 Certified: No
 
-## Release Notes for version 1.2.0
+## Release Notes for version 1.1.1
 
-Following enhancements have been made to the Rapid7 Threat Command Cloud Connector in version 1.2.0:
+Following enhancements have been made to the Rapid7 Threat Command Cloud Connector in version 1.1.1:
 <ul>
 <li><code>Get Alerts List</code> action now supports the <code>Found Date From</code> and <code>Found Date To</code> parameters.</li>
 </ul>
@@ -213,7 +213,7 @@ The output contains a non-dictionary value.
 
 ## Included playbooks
 
-The `Sample - Rapid7 Threat Command Cloud - 1.2.0` playbook collection comes bundled with the Rapid7 Threat Command
+The `Sample - Rapid7 Threat Command Cloud - 1.1.1` playbook collection comes bundled with the Rapid7 Threat Command
 Cloud connector. These playbooks contain steps using which you can perform all supported actions. You can see bundled
 playbooks in the **Automation** > **Playbooks** section in FortiSOAR&trade; after importing the Rapid7 Threat Command
 Cloud connector.
