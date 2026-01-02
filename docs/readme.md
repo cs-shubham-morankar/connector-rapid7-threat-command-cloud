@@ -58,9 +58,9 @@ click [here](https://docs.fortinet.com/document/fortisoar/0.0.0/configuring-a-co
 The following automated operations can be included in playbooks and you can also use the annotations to access
 operations:
 <table border=1><thead><tr><th>Function<br></th><th>Description<br></th><th>Annotation and Category<br></th></tr></thead><tbody><tr><td>Get IOC Sources<br></td><td>Retrieve a list of IOC sources from rapid7 threat command cloud server.<br></td><td>get_ioc_sources <br/>Investigation<br></td></tr>
-<tr><td>Get IOCs by Filter<br></td><td>Retrieve a list of IOCs from the Rapid7 Threat Command cloud server based on the Last Updated From parameter you specified.<br></td><td>get_iocs_by_filter <br/>Investigation<br></td></tr>
+<tr><td>Get IOCs by Filter<br></td><td>Retrieve a list of IOC's from the Rapid7 Threat Command cloud server based on the Last Updated From parameter you specified.<br></td><td>get_iocs_by_filter <br/>Investigation<br></td></tr>
 <tr><td>Get IOC by Value<br></td><td>Retrieve a specific IOC details from rapid7 threat command cloud server based on the IOC value parameter you have specified.<br></td><td>get_ioc_by_value <br/>Investigation<br></td></tr>
-<tr><td>Add IOCs to Source<br></td><td>Add IOCs to the specified source in the Rapid7 Threat Command cloud server using the provided source ID and IOC value parameters.<br></td><td>add_iocs_to_source <br/>Investigation<br></td></tr>
+<tr><td>Add IOCs to Source<br></td><td>Add IOC's to the specified source in the Rapid7 Threat Command cloud server using the provided source ID and IOC value parameters.<br></td><td>add_iocs_to_source <br/>Investigation<br></td></tr>
 <tr><td>Change IOC Severity<br></td><td>Change IOC <br></td><td>change_ioc_severity <br/>Investigation<br></td></tr>
 <tr><td>Get CVEs by IDs<br></td><td>Retrieve CVE details from the Rapid7 Threat Command cloud server using the CVE IDs you provided.<br></td><td>get_cves_by_ids <br/>Investigation<br></td></tr>
 <tr><td>Get CVEs List from Account<br></td><td>Retrieve a list of CVEs from the Rapid7 Threat Command cloud server based on the Publish Date From parameter you specified.<br></td><td>get_cves_list_from_account <br/>Investigation<br></td></tr>
@@ -84,7 +84,7 @@ The output contains a non-dictionary value.
 #### Input parameters
 
 <table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Last Updated From<br></td><td>Select a date and time to retrieve results that include only items last updated after the specified timestamp.<br>
-</td></tr><tr><td>Offset<br></td><td>Specify the number of records to skip when retrieving records from Dragos SiteStore server.<br>
+</td></tr><tr><td>Offset<br></td><td>Specify the number of records to skip when retrieving records from rapid7 threat command cloud server.<br>
 </td></tr><tr><td>Page Size<br></td><td>Specify the maximum number of results this operation should return, per page, in the response.<br>
 </td></tr></tbody></table>
 
@@ -107,8 +107,8 @@ The output contains a non-dictionary value.
 
 #### Input parameters
 
-<table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Source ID<br></td><td>Specify the ID of the source based on which you want to add IOCs.<br>
-</td></tr><tr><td>IOCs<br></td><td>Specify a comma-separated list of IOCs to add to the source in the Rapid7 Threat Command cloud server.<br>
+<table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Source ID<br></td><td>Specify the ID of the source based on which you want to add IOC's.<br>
+</td></tr><tr><td>IOCs<br></td><td>Specify a comma-separated list of IOC's to add to the source in the Rapid7 Threat Command cloud server.<br>
 </td></tr></tbody></table>
 
 #### Output
